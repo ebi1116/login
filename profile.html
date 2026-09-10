@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Profile</title>
+
+    <link rel="stylesheet", href = {% static "profile.css" %}>
+</head>
+
+<body>
+
+    <div class="profile-box">
+
+        {% if student.profile_image %}
+            <img src="{{ student.profile_image.url }}"
+                 alt="Profile Image"
+                 width="150"
+                 height="150">
+        {% else %}
+            <p>No Profile Image</p>
+        {% endif %}
+
+        <h1>{{ student.name }}</h1>
+
+        <p><strong>Username:</strong> {{ student.username }}</p>
+
+        <p><strong>Email:</strong> {{ student.email }}</p>
+
+        <p><strong>Phone:</strong> {{ student.phone }}</p>
+
+        <p><strong>Department:</strong> {{ student.department }}</p>
+
+        <p><strong>Year:</strong> {{ student.year }}</p>
+
+    </div>
+
+</body>
+
+</html>
